@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -57,5 +59,9 @@ public class User {
     @CollectionTable(name = "user_blocked_places", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "place_name")
     private Set<String> blockedPlaces = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
+    private List<Travel> travels = new ArrayList<>();
 
 }

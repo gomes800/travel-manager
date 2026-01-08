@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,6 +23,8 @@ public class User {
 
     @Column(unique = true, nullable = false)
     private String email;
+
+    private String password;
 
     @Column(unique = true)
     private String username;

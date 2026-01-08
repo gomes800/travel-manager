@@ -1,5 +1,6 @@
 package com.gom.travel.model;
 
+import com.gom.travel.dto.TravelRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class Travel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long travelId;
 
     private String destinyPlace;
     private String destinyResume;
@@ -27,4 +28,12 @@ public class Travel {
     @CollectionTable(name = "recommended_activities", joinColumns = @JoinColumn(name = "travel_id"))
     @Column(name = "activities")
     private Set<String> recommendedActivities;
+
+    public Travel(TravelRequest dto) {
+        this.destinyPlace = dto.destinyPlace();
+        this.destinyResume = dto.destinyResume();
+        this.participants = dto.participants();
+        this.recommendedBudget = dto.recommendedBudget();
+        this.recommendedActivities = dto.recommendedActivities();
+    }
 }

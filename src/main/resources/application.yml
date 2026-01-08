@@ -11,7 +11,7 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    url: jdbc:postgresql://localhost:5432/travel
+    url: jdbc:postgresql://172.24.182.114:5432/travel
     username: postgres
     password: 12345
   jpa:

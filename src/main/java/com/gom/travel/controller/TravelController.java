@@ -2,7 +2,6 @@ package com.gom.travel.controller;
 
 import com.gom.travel.dto.TravelRequest;
 import com.gom.travel.dto.TravelResponse;
-import com.gom.travel.model.Travel;
 import com.gom.travel.service.TravelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

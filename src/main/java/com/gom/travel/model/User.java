@@ -46,6 +46,11 @@ public class User {
     private Set<InterestCategory> interests;
 
     @ElementCollection
+    @CollectionTable(name = "user_visited_places", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "place_name")
+    private Set<String> visitedPlaces = new HashSet<>();
+
+    @ElementCollection
     @CollectionTable(name = "user_liked_places", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "place_name")
     private Set<String> likedPlaces = new HashSet<>();

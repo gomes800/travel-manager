@@ -5,8 +5,8 @@ import java.util.Set;
 public record TravelRequest(
         String destinyPlace,
         String destinyResume,
-        int participants,
-        int recommendedBudget,
+        Integer participants,
+        Integer recommendedBudget,
         Set<String> recommendedActivities
 ) {
 }

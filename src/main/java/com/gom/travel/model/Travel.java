@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -20,14 +21,17 @@ public class Travel {
     private Long travelId;
 
     private String destinyPlace;
+
+    @Column(columnDefinition = "TEXT")
     private String destinyResume;
+
     private int participants;
     private int recommendedBudget;
 
     @ElementCollection
     @CollectionTable(name = "recommended_activities", joinColumns = @JoinColumn(name = "travel_id"))
     @Column(name = "activities")
-    private Set<String> recommendedActivities;
+    private Set<String> recommendedActivities = new HashSet<>();
 
     public Travel(TravelRequest dto) {
         this.destinyPlace = dto.destinyPlace();

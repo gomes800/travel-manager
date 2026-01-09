@@ -36,4 +36,9 @@ public class TravelController {
         travelService.deleteTravel(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/aigen/{userId}")
+    public ResponseEntity<TravelResponse> createTravelWithIA(@PathVariable Long userId) {
+        return ResponseEntity.ok(travelService.createTravelWithIA(userId));
+    }
 }

@@ -1,10 +1,8 @@
 package com.gom.travel.service;
 
 import com.google.genai.Client;
-import com.google.genai.types.Content;
 import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
-import com.google.genai.types.Part;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +15,6 @@ public class AIService {
 
     GenerateContentConfig config = GenerateContentConfig
             .builder()
-            .systemInstruction(Content.fromParts(Part.fromText("Respond ONLY with pure JSON, no markdown or explanations.")))
             .build();
 
     public String getAIRecommendation(String prompt) {

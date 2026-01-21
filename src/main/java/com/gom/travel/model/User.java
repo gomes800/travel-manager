@@ -65,8 +65,10 @@ public class User {
     @Column(name = "place_name")
     private Set<String> blockedPlaces = new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Travel> travels = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "participants")
+    private List<Group> groups = new ArrayList<>();
 
 }

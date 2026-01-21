@@ -33,6 +33,10 @@ public class Travel {
     @Column(name = "activities")
     private Set<String> recommendedActivities = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Travel(TravelRequest dto) {
         this.destinyPlace = dto.destinyPlace();
         this.destinyResume = dto.destinyResume();
